@@ -9,6 +9,9 @@
 puts "Delete all comments"
 Comment.destroy_all
 
+puts "Delete all vote"
+Vote.destroy_all
+
 puts "Delete all articles"
 Article.destroy_all
 
