@@ -4,5 +4,13 @@
       <h1> <%= @article.title %></h1>
       <p><%= @article.content %></p>
     </div>
+    <div class="comments-lists">
+      <% @comments.each do |comment| %>
+        <%= comment.created_at %>
+        <%= comment.user %>
+        <%=  comment.content %>
+      <% end %>
+    </div>
+
  </div>
 </div>

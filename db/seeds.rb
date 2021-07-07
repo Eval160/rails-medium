@@ -19,9 +19,9 @@ puts "Delete all users"
 User.destroy_all
 
 puts "Create users Riri, Fifi and Loulou"
-riri = User.create! email: "riri@gmail.com", password: "azerty"
-fifi = User.create! email: "fifi@gmail.com", password: "azerty"
-loulou = User.create! email: "loulou@gmail.com", password: "azerty"
+riri = User.create! nickname: "Riri", email: "riri@gmail.com", password: "azerty"
+fifi = User.create! nickname: "Fifi", email: "fifi@gmail.com", password: "azerty"
+loulou = User.create! nickname: "Loulou", email: "loulou@gmail.com", password: "azerty"
 
 puts "Create articles"
 article_1 = Article.create! title: "Mon premier article", content: "Cet article est vraiment pationnant, lisez le jusqu'au bout!", user: riri, publish: true
