@@ -6,7 +6,7 @@ class ArticlesController < ApplicationController
     search = params["search"]
     if search.present?
       title = search["title"]
-      @articles = Article.where("title ILIKE ?", "%#{title}%", publish: true).order(created_at: :desc).with_rich_text_rich_content_and_embeds
+      @articles = Article.where("title ILIKE ?", "%#{title}%").where(publish: true).order(created_at: :desc).with_rich_text_rich_content_and_embeds
     end
 
   end
