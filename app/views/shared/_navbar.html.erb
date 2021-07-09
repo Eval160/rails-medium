@@ -10,6 +10,12 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
+      <%= simple_form_for :search, url: root_path, method: "GET", html: { class: 'form-inline my-2 my-lg-0' } do |f| %>
+        <%= f.input :title, label: false ,input_html: {value: ""} %>
+      <% end %>
+      <li class="nav-item active">
+        <%= link_to "Tous les articles", root_path, class: "nav-link" %>
+      </li>
       <% if user_signed_in? %>
         <li class="nav-item active">
           <%= link_to "Home", "#", class: "nav-link" %>
