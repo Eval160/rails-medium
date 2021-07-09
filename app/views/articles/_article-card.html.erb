@@ -5,6 +5,6 @@
     <%=  link_to "[...]", article_path(article) if article.rich_content.body.html_safe.length > 140 %>
   </div>
   <%= link_to article_path(article) do %>
-  <button class="btn btn-primary">Voir détail</button>
+    <button class="btn btn-primary mt-4">Voir détail</button>
   <% end %>
 </div>

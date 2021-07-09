@@ -2,14 +2,13 @@ class ArticlesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @articles = Article.all.with_rich_text_rich_content_and_embeds
+    @articles = Article.where(publish: true).order(created_at: :desc).with_rich_text_rich_content_and_embeds
   end
 
   def show
     @article = Article.find(params[:id])
     @comments = @article.comments
     @new_comment = Comment.new
-    #raise
   end
 
   def new
@@ -25,6 +24,19 @@ class ArticlesController < ApplicationController
       render :new
     end
   end
+
+  def update
+    @article = Article.find(params[:id])
+    @article.publish = true
+    if @article.save
+      redirect_to root_path
+    end
+  end
+
+  def unpublished
+    @articles = Article.where(publish: false, user: current_user)
+  end
+
 
   private
 

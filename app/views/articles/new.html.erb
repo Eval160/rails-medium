@@ -4,8 +4,8 @@
       <%= f.input :title %>
       <%= f.rich_text_area :rich_content %>
       <div class="custom-control custom-switch mb-3">
-        <input name="article[publish]" type="hidden" value="0">
-        <input type="checkbox" class="custom-control-input boolean required" value="1" name="article[publish]" id="article_publish" checked>
+        <input name="article[publish]" type="hidden" value="false">
+        <input type="checkbox" class="custom-control-input boolean required" value="true" name="article[publish]" id="article_publish" checked>
         <label class="custom-control-label boolean required" for="article_publish">Publier cet article</label>
       </div>
       <%= f.submit 'Enregister mon article', class: "btn btn-primary"%>

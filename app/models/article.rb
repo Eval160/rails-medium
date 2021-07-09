@@ -5,5 +5,4 @@ class Article < ApplicationRecord
   has_one_attached :blob
   validates :title, presence: true, length: { minimum: 3 }
   validates :rich_content, presence: true
-  validates :publish, presence: true
 end

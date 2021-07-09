@@ -4,6 +4,11 @@
       <h1> <%= @article.title %></h1>
       <p><%= @article.rich_content %></p>
     </div>
+    <% unless @article.publish %>
+      <%= link_to article_path(@article), method: :put do %>
+        <button class="btn btn-primary mt-4">Publier cet article</button>
+      <% end %>
+    <% end %>
     <div class="comments-lists">
       <% @comments.each do |comment| %>
         <div class="comment-card">
