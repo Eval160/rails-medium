@@ -2,7 +2,7 @@
   <div class="col-12 col-md-10 col-lg-8">
     <div class="article-show py-5">
       <h1> <%= @article.title %></h1>
-      <p><%= @article.content %></p>
+      <p><%= @article.rich_content %></p>
     </div>
     <div class="comments-lists">
       <% @comments.each do |comment| %>

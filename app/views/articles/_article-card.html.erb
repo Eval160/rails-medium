@@ -1,10 +1,9 @@
 <div class="article-card">
   <h3><%= article.title %></h3>
-  <p class="article-card_content">
-    <%= article.content.first(150) %>
-    <%=  link_to "[...]", article_path(article) if article.content.length > 150 %>
-
-  </p>
+  <div class="article-card_content">
+    <%= truncate_rich_text(article.rich_content, 140) %>
+    <%=  link_to "[...]", article_path(article) if article.rich_content.body.html_safe.length > 140 %>
+  </div>
   <%= link_to article_path(article) do %>
   <button class="btn btn-primary">Voir détail</button>
   <% end %>

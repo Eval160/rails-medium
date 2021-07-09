@@ -24,8 +24,8 @@ fifi = User.create! nickname: "Fifi", email: "fifi@gmail.com", password: "azerty
 loulou = User.create! nickname: "Loulou", email: "loulou@gmail.com", password: "azerty"
 
 puts "Create articles"
-article_1 = Article.create! title: "Mon premier article", content: "Cet article est vraiment pationnant, lisez le jusqu'au bout!", user: riri, publish: true
-article_2 = Article.create! title: "Mon deuxieme article", content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", user: fifi, publish: true
+article_1 = Article.create! title: "Mon premier article", rich_content: "Cet article est vraiment pationnant, lisez le jusqu'au bout!", user: riri, publish: true
+article_2 = Article.create! title: "Mon deuxieme article", rich_content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", user: fifi, publish: true
 
 puts "Create comments"
 
