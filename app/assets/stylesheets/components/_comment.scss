@@ -1,0 +1,17 @@
+.comment-card {
+  background-color: white;
+  padding: 1rem;
+  box-shadow: 0px 0px 10px 0px #dedada;
+  border-radius: 3px;
+
+  &_header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    color: #6f6f6f;
+  }
+
+  &_datetime {
+    font-style: italic;
+  }
+}

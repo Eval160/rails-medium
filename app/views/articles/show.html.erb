@@ -1,0 +1,22 @@
+<div class="row justify-content-center">
+  <div class="col-12 col-md-10 col-lg-8">
+    <div class="article-show py-5">
+      <h1> <%= @article.title %></h1>
+      <p><%= @article.rich_content %></p>
+    </div>
+    <div class="comments-lists">
+      <% @comments.each do |comment| %>
+        <div class="comment-card">
+          <div class="comment-card_header">
+            <span class="comment-card_username"><%= comment.user.nickname %></span>
+            <span class="comment-card_datetime"><%= comment.created_at.strftime("%d-%m-%Y") %></span>
+          </div>
+          <div class="comment-card_content">
+            <%=  comment.content %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+ </div>
+</div>
