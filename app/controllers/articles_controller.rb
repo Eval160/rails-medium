@@ -1,5 +1,6 @@
 class ArticlesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
+  before_action :set_params, only: [:show, :update]
 
   def index
     @articles = Article.where(publish: true).order(created_at: :desc).with_rich_text_rich_content_and_embeds
@@ -11,7 +12,6 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    @article = Article.find(params[:id])
     @comments = @article.comments
     @new_comment = Comment.new
   end
@@ -31,7 +31,6 @@ class ArticlesController < ApplicationController
   end
 
   def update
-    @article = Article.find(params[:id])
     @article.publish = true
     if @article.save
       redirect_to root_path
@@ -44,6 +43,10 @@ class ArticlesController < ApplicationController
 
 
   private
+
+  def set_params
+    @article = Article.find(params[:id])
+  end
 
   def article_params
     params.require(:article).permit(:title, :rich_content, :publish)
