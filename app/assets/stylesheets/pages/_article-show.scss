@@ -5,15 +5,18 @@
     justify-content: space-between;
     align-items: baseline;
   }
+  &_toggle a{
+    color: inherit;
+  }
 }
 
 @include tablet{
-.article-show {
-  &_title {
-    display: flex;
-    flex-direction: column;
-    justify-content: initial;
-    align-items: initial;
+  .article-show {
+    &_title {
+      display: flex;
+      flex-direction: column;
+      justify-content: initial;
+      align-items: initial;
+    }
   }
-}
 }

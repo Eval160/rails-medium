@@ -31,9 +31,9 @@ class ArticlesController < ApplicationController
   end
 
   def update
-    @article.publish = true
+    @article.publish = !@article.publish
     if @article.save
-      redirect_to root_path
+      redirect_to article_path(@article)
     end
   end
 

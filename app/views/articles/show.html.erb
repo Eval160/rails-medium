@@ -1,19 +1,27 @@
 <div class="row justify-content-center">
   <div class="col-12 col-md-10 col-lg-8">
     <div class="article-show py-5">
-      <div class="article-show_title">
-        <h1> <%= @article.title %></h1>
-        <div class="upvote clickable" id="votes-article-<%= @article.id %>">
-          <%= render 'vote-icon', article: @article %>
+      <div class="article-show_header">
+        <div class="article-show_title">
+          <h1> <%= @article.title %></h1>
+          <div class="upvote clickable" id="votes-article-<%= @article.id %>">
+            <%= render 'vote-icon', article: @article %>
+          </div>
+        </div>
+        <div class="article-show_toggle">
+          <% if @article.user == current_user %>
+            <%= link_to article_path(@article), method: :put do %>
+              <div class="custom-control custom-switch my-1">
+                <input name="article[publish]" type="hidden" value="false">
+                <input type="checkbox" class="custom-control-input boolean required" value="true" name="article[publish]" id="article_publish" <%= 'checked' if @article.publish %> >
+                <label class="custom-control-label boolean required" for="article_publish">Publié</label>
+              </div>
+            <% end %>
+          <% end %>
         </div>
       </div>
       <p><%= @article.rich_content %></p>
     </div>
-    <% unless @article.publish %>
-      <%= link_to article_path(@article), method: :put do %>
-        <button class="btn btn-primary mt-4">Publier cet article</button>
-      <% end %>
-    <% end %>
     <div class="comments-lists">
       <% @comments.each do |comment| %>
         <div class="comment-card">
@@ -26,7 +34,7 @@
           </div>
         </div>
       <% end %>
-      <% if user_signed_in? %>
+      <% if user_signed_in? && @article.publish %>
         <div class="comment-form my-5">
           <%= simple_form_for [@article, Comment.new] do |f| %>
             <%= f.input :content, as: :string, input_html: { required: true } %>
@@ -35,6 +43,5 @@
         </div>
       <% end %>
     </div>
-
  </div>
 </div>
