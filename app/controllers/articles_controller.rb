@@ -8,7 +8,6 @@ class ArticlesController < ApplicationController
       title = search["title"]
       @articles = Article.where("title ILIKE ?", "%#{title}%").where(publish: true).order(created_at: :desc).with_rich_text_rich_content_and_embeds
     end
-
   end
 
   def show

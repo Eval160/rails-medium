@@ -10,15 +10,23 @@
       <% end %>
     <% end %>
     <div class="comments-lists">
-      <% @comments.each do |comment| %>
+      <% @article.comments.each do |comment| %>
         <div class="comment-card">
           <div class="comment-card_header">
             <span class="comment-card_username"><%= comment.user.nickname %></span>
             <span class="comment-card_datetime"><%= comment.created_at.strftime("%d-%m-%Y") %></span>
           </div>
-          <div class="comment-card_content">
+          <div class="comment-card_content" id="comment-<%= comment.id %>">
             <%=  comment.content %>
           </div>
+        </div>
+      <% end %>
+      <% if user_signed_in? %>
+        <div class="comment-form my-5">
+          <%= simple_form_for [@article, Comment.new] do |f| %>
+            <%= f.input :content, as: :string %>
+            <%= f.submit 'Poster mon commentaire', class: "btn btn-primary"%>
+          <% end %>
         </div>
       <% end %>
     </div>

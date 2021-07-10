@@ -1,0 +1,12 @@
+fr:
+  activerecord:
+    errors:
+      models:
+        comment:
+          blank: "Le commentaire ne peut pas être vide"
+        article:
+          attributes:
+            title:
+              blank: " ne peut pas être vide"
+              too_short: " doit contenir au moins %{count} caractères"
+

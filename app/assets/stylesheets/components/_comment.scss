@@ -1,8 +1,9 @@
 .comment-card {
-  background-color: white;
-  padding: 1rem;
-  box-shadow: 0px 0px 10px 0px #dedada;
-  border-radius: 3px;
+    background-color: white;
+    padding: 0.5rem 1rem;
+    box-shadow: 0px 0px 10px 0px #dedada;
+    border-radius: 3px;
+    margin: 0.8rem 0;
 
   &_header {
     display: flex;
