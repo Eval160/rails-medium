@@ -12,7 +12,7 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    @comments = @article.comments
+    @comments = @article.comments.order(created_at: :asc)
     @new_comment = Comment.new
   end
 

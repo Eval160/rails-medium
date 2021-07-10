@@ -1,7 +1,7 @@
 <div class="row justify-content-center">
   <div class="col-12 col-md-10 col-lg-8">
     <div class="article-show py-5">
-      <div class="article-show_title d-flex justify-content-between align-items-baseline">
+      <div class="article-show_title">
         <h1> <%= @article.title %></h1>
         <div class="upvote clickable" id="votes-article-<%= @article.id %>">
           <%= render 'vote-icon', article: @article %>
@@ -15,7 +15,7 @@
       <% end %>
     <% end %>
     <div class="comments-lists">
-      <% @article.comments.each do |comment| %>
+      <% @comments.each do |comment| %>
         <div class="comment-card">
           <div class="comment-card_header">
             <span class="comment-card_username"><%= comment.user.nickname %></span>
@@ -29,8 +29,8 @@
       <% if user_signed_in? %>
         <div class="comment-form my-5">
           <%= simple_form_for [@article, Comment.new] do |f| %>
-            <%= f.input :content, as: :string %>
-            <%= f.submit 'Poster mon commentaire', class: "btn btn-primary"%>
+            <%= f.input :content, as: :string, input_html: { required: true } %>
+            <%#= f.submit 'Poster mon commentaire', class: "btn btn-primary"%>
           <% end %>
         </div>
       <% end %>

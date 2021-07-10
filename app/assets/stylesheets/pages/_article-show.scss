@@ -1,0 +1,19 @@
+.article-show {
+  &_title {
+    color: $primary;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+}
+
+@include tablet{
+.article-show {
+  &_title {
+    display: flex;
+    flex-direction: column;
+    justify-content: initial;
+    align-items: initial;
+  }
+}
+}
