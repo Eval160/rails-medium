@@ -1,0 +1,2 @@
+var voteIcon = document.getElementById('votes-article-<%= @article.id %>')
+voteIcon.innerHTML = "<%= j render 'articles/vote-icon', article: @article %>";

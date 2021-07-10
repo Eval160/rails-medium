@@ -1,0 +1,18 @@
+<% if user_signed_in? %>
+  <% if current_user.votes.find_by(article: article)  %>
+    <%= link_to vote_path(current_user.votes.find_by(article: article)), method: :delete, remote: true  do %>
+      <i class="fas fa-thumbs-up"> </i>
+      <span><%= article.votes.length %></span>
+    <% end %>
+  <% else %>
+    <%= link_to  article_votes_path(article), method: :post, remote: true  do %>
+      <i class="far fa-thumbs-up"> </i>
+      <span><%= article.votes.length %></span>
+    <% end %>
+  <% end %>
+<% else %>
+  <div data-toggle="tooltip" data-placement="top" title="Connectez-vous pour voter pour cet article!">
+    <i class="far fa-thumbs-up"></i>
+    <span> <%= article.votes.length %> </span>
+  </div>
+<% end %>

@@ -1,0 +1,11 @@
+.upvote {
+
+  &.clickable {
+    cursor: pointer;
+  }
+
+  a {
+    color: $primary;
+    text-decoration: none;
+  }
+}
