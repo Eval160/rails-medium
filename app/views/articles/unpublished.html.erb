@@ -1,6 +1,6 @@
 <div class="row">
   <% @articles.each do |article| %>
-    <div class="col-12 col-md-6 col-lg-4 p-4" id="article-<%= article.id %>">
+    <div class="col-12" id="article-<%= article.id %>">
       <%= render 'article-card', article: article %>
     </div>
   <% end %>
