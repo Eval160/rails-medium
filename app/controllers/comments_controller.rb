@@ -7,8 +7,7 @@ class CommentsController < ApplicationController
     if @comment.save
       redirect_to article_path(@article, anchor: 'comment-' + @comment.id.to_s)
     else
-      flash.now[:alert] = "Oups, #{@comment.errors.values.join}"
-      render 'articles/show'
+      redirect_to article_path(@article), notice: "Oups, #{@comment.errors.values.join}"
     end
   end
 

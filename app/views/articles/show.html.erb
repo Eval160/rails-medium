@@ -41,6 +41,10 @@
             <%#= f.submit 'Poster mon commentaire', class: "btn btn-primary"%>
           <% end %>
         </div>
+      <% elsif !user_signed_in? %>
+        <%= link_to new_user_session_path do %>
+          <p class="alert-secondary pl-2 py-4">Connectez-vous pour pouvoir commenter cet article</p>
+        <% end %>
       <% end %>
     </div>
  </div>

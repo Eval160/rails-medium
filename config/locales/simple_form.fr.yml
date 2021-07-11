@@ -25,6 +25,7 @@ fr:
           email: 'Adresse mail'
         edit:
           email: 'Adresse mail'
+        nickname: "Nom d'utilisateur"
         password: 'Mot de passe'
         remember_me: 'Se souvenir de moi'
         password_confirmation: 'Confirmation du mot de passe'
